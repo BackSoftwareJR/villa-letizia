@@ -1,0 +1,11 @@
+# robots.txt per Villa Letizia Casa Famiglia per Anziani
+
+User-agent: *
+Allow: /
+Disallow: /images\ 2/
+
+# Sitemap
+Sitemap: https://casafamigliavillaletizia.it/sitemap.xml
+
+# Crawl-delay (opzionale, in secondi)
+Crawl-delay: 1
