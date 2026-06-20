@@ -1,0 +1,9 @@
+{
+  "name": "casafamigliavillaletizia",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Villa Letizia - Casa Famiglia per Anziani static website",
+  "scripts": {
+    "test": "node scripts/validate-site.js"
+  }
+}

@@ -1,7 +1,7 @@
-/* Villa Letizia - JavaScript v1.1.0 - Carosello mobile fix */
+/* Villa Letizia - JavaScript v1.2.0 - Footer interactivity */
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for elements with [data-scroll] and internal nav links
-  const smoothLinks = Array.from(document.querySelectorAll('[data-scroll], .nav a[href^="#"]'));
+  const smoothLinks = Array.from(document.querySelectorAll('[data-scroll], .nav a[href^="#"], .footer-nav a[href*="#"]'));
   smoothLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -610,6 +610,65 @@ document.addEventListener('DOMContentLoaded', () => {
       preview.style.display = 'inline';
     }
   };
+
+  // Footer accordion (mobile)
+  const footerToggles = Array.from(document.querySelectorAll('.footer-toggle'));
+  const footerMq = window.matchMedia('(max-width: 900px)');
+
+  const syncFooterPanels = () => {
+    const isMobile = footerMq.matches;
+    footerToggles.forEach((toggle, index) => {
+      toggle.setAttribute('aria-expanded', isMobile ? (index === 0 ? 'true' : 'false') : 'true');
+    });
+  };
+
+  footerToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      if (!footerMq.matches) return;
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+    });
+  });
+
+  if (footerMq.addEventListener) {
+    footerMq.addEventListener('change', syncFooterPanels);
+  } else {
+    footerMq.addListener(syncFooterPanels);
+  }
+  syncFooterPanels();
+
+  // Back to top button
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    const showOffset = 400;
+    let backToTopTicking = false;
+
+    const updateBackToTop = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > showOffset) {
+        backToTop.classList.add('is-visible');
+        backToTop.hidden = false;
+      } else {
+        backToTop.classList.remove('is-visible');
+        backToTop.hidden = true;
+      }
+      backToTopTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!backToTopTicking) {
+        window.requestAnimationFrame(updateBackToTop);
+        backToTopTicking = true;
+      }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      const homeTarget = document.querySelector('#hero') || document.body;
+      homeTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    updateBackToTop();
+  }
 });
 
 // Call button behavior - desktop vs mobile
