@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..');
 
 const htmlFiles = [
   'index.html',
+  'la-villa.html',
   'privacy-policy.html',
   'cookie-policy.html',
   'termini-condizioni.html',

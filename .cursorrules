@@ -5,15 +5,43 @@
 
 <!-- DO NOT EDIT BELOW — managed by HyperOrchestrator -->
 
-**Current task context:** Sviluppare un footer più moderno e interattivo, con le seguenti caratteristiche:
+**Current task context:** Create a new page dedicated to La Villa with the following objectives: develop relevant and attractive content, optimize the page for a good user experience, add a link to the site's header to facilit
+
+## Project-Specific Patterns
+
+### Pattern 1 (relevance: 9%)
+
+**When you see:**
+```
+Command: npm run test
+Exit: non-zero
+
+npm ERR! code ENOENT
+npm ERR! syscall open
+npm ERR! path /workspace/package.json
+npm ERR! errno -2
+npm ERR! enoent ENOENT: no such file or directory, open '/workspace/package.json'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2026-06-20T12_57_32_046Z-debug-0.log
+```
+
+**Try this approach:**
+```
+Resolved after 1 failed attempt(s)
+```
+
+_From task: Sviluppare un footer più moderno e interattivo, con le seguenti caratteristiche:
          * Design responsivo
          * Facile navigazione
          * Informazioni di contatto chiare
-         * Link a
+         * Link ai social media | Failures before success: 1_
 
 ## Global Patterns (cross-project)
 
-### Pattern 1 (relevance: 4%)
+### Pattern 1 (relevance: 20%)
 
 **When you see:**
 ```
